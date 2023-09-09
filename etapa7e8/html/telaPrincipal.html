@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Inicial</title>
+    <link href="/testes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/css/telaPrincipal.css">
+</head>
+
+<body>
+    <header>
+        <h1>Bem vindo!!</h1>
+    </header>
+    <section>
+        <div>
+            <div class="row" id="filmes">
+                <h3 class="col-sm-1">Filmes</h3>
+                <table class="col-sm-11">
+                    <thead>
+                        <tr>
+                            <th>Para assistir</th>
+                            <th>Assistindo</th>
+                            <th>Assistido</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <button onclick="document.getElementById('editarFilme').style.display='block'">Atualizar Filme</button>
+            <button onclick="document.getElementById('adicionarFilme').style.display='block'">Adicionar Filme</button>
+            <button>Remover Filme</button>
+
+            <div id="adicionarFilme" class="w3-modal w3-animate-opacity">
+                <div class="w3-modal-content">
+                    <header>
+                        <span onclick="document.getElementById('adicionarFilme').style.display='none'"
+                            class="w3-button w3-display-topright">&times;</span>
+                        <h2>Adicionar Filme</h2>
+                    </header>
+                    <div class="w3-container">
+                        <form>
+                            <label>Nome:</label>
+                            <input type="text">
+                            <br />
+                            <label>Nome do diretor:</label>
+                            <input type="text">
+                            <br />
+                            <label>Ano de lançamento:</label>
+                            <input type="date">
+                            <br />
+                            <label>Tempo de duração:</label>
+                            <input type="text">
+                            <br />
+                            <label>Status:</label>
+                            <select name="" id="">
+                                <option value="Para assistir">Para assistir</option>
+                                <option value="Assistindo">Assistindo</option>
+                                <option value="Assistido">Assistido</option>
+                            </select>
+                        </form>
+                        <button
+                            onclick="document.getElementById('adicionarFilme').style.display='none'">Adicionar</button>
+                        <button onclick="document.getElementById('adicionarFilme').style.display='none'">Voltar</button>
+                    </div>
+                </div>
+            </div>
+            <div id="editarFilme" class="w3-modal w3-animate-opacity">
+                <div class="w3-modal-content">
+                    <header>
+                        <span onclick="document.getElementById('editarFilme').style.display='none'"
+                            class="w3-button w3-display-topright">&times;</span>
+                        <h2>Atualizar Filme</h2>
+                    </header>
+                    <div class="w3-container">
+                        <form>
+                            <label>Status:</label>
+                            <input type="radio" name="radioBFilme">Para assistir</input>
+                            <input type="radio" name="radioBFilme">Assistindo</input>
+                            <input type="radio" name="radioBFilme">Assistido</input>
+                        </form>
+                        <button onclick="document.getElementById('editarFilme').style.display='none'">Atualizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row" id="series">
+                <h3 class="col-sm-1">Séries</h3>
+                <table class="col-sm-11">
+                    <thead>
+                        <tr>
+                            <th>Para assistir</th>
+                            <th>Assistindo</th>
+                            <th>Assistido</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <button onclick="document.getElementById('editarSerie').style.display='block'">Atualizar Série</button>
+            <button onclick="document.getElementById('adicionarSerie').style.display='block'">Adicionar Série</button>
+            <button>Remover Série</button>
+
+            <div id="adicionarSerie" class="w3-modal w3-animate-opacity">
+                <div class="w3-modal-content">
+                    <header>
+                        <span onclick="document.getElementById('adicionarSerie').style.display='none'"
+                            class="w3-button w3-display-topright">&times;</span>
+                        <h2>Adicionar Série</h2>
+                    </header>
+                    <div class="w3-container">
+                        <form>
+                            <label>Nome:</label>
+                            <input type="text">
+                            <br />
+                            <label>Nome do diretor:</label>
+                            <input type="text">
+                            <br />
+                            <label>Ano de lançamento:</label>
+                            <input type="date">
+                            <br />
+                            <label>Status:</label>
+                            <select name="" id="">
+                                <option value="Para assistir">Para assistir</option>
+                                <option value="Assistindo">Assistindo</option>
+                                <option value="Assistido">Assistido</option>
+                            </select>
+                        </form>
+                        <button
+                            onclick="document.getElementById('adicionarSerie').style.display='none'">Adicionar</button>
+                        <button onclick="document.getElementById('adicionarSerie').style.display='none'">Voltar</button>
+                    </div>
+                </div>
+            </div>
+            <div id="editarSerie" class="w3-modal w3-animate-opacity">
+                <div class="w3-modal-content">
+                    <header>
+                        <span onclick="document.getElementById('editarSerie').style.display='none'"
+                            class="w3-button w3-display-topright">&times;</span>
+                        <h2>Atualizar Série</h2>
+                    </header>
+                    <div class="w3-container">
+                        <form>
+                            <label>Status:</label>
+                            <input type="radio" name="radioBSerie">Para assistir</input>
+                            <input type="radio" name="radioBSerie">Assistindo</input>
+                            <input type="radio" name="radioBSerie">Assistido</input>
+                        </form>
+                        <button onclick="document.getElementById('editarSerie').style.display='none'">Atualizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row" id="livros">
+                <h3 class="col-sm-1">Livros</h3>
+                <table class="col-sm-11">
+                    <thead>
+                        <tr>
+                            <th>Para ler</th>
+                            <th>Lendo</th>
+                            <th>Lido</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <button onclick="document.getElementById('editarLivro').style.display='block'">Atualizar Livro</button>
+            <button onclick="document.getElementById('adicionarLivro').style.display='block'">Adicionar Livro</button>
+            <button>Remover Livro</button>
+
+            <div id="adicionarLivro" class="w3-modal w3-animate-opacity">
+                <div class="w3-modal-content">
+                    <header>
+                        <span onclick="document.getElementById('adicionarLivro').style.display='none'"
+                            class="w3-button w3-display-topright">&times;</span>
+                        <h2>Adicionar Livro</h2>
+                    </header>
+                    <div class="w3-container">
+                        <form>
+                            <label>Nome:</label>
+                            <input type="text">
+                            <br />
+                            <label>Nome do escritor:</label>
+                            <input type="text">
+                            <br />
+                            <label>Ano de lançamento:</label>
+                            <input type="date">
+                            <br />
+                            <label>Status:</label>
+                            <select name="" id="">
+                                <option value="Para ler">Para ler</option>
+                                <option value="Lendo">Lendo</option>
+                                <option value="Lido">Lido</option>
+                            </select>
+                        </form>
+                        <button
+                            onclick="document.getElementById('adicionarLivro').style.display='none'">Adicionar</button>
+                        <button onclick="document.getElementById('adicionarLivro').style.display='none'">Voltar</button>
+                    </div>
+                </div>
+            </div>
+            <div id="editarLivro" class="w3-modal w3-animate-opacity">
+                <div class="w3-modal-content">
+                    <header>
+                        <span onclick="document.getElementById('editarLivro').style.display='none'"
+                            class="w3-button w3-display-topright">&times;</span>
+                        <h2>Atualizar Livro</h2>
+                    </header>
+                    <div class="w3-container">
+                        <form>
+                            <label>Status:</label>
+                            <input type="radio" name="radioBLivro">Para ler</input>
+                            <input type="radio" name="radioBLivro">Lendo</input>
+                            <input type="radio" name="radioBLivro">Lido</input>
+                        </form>
+                        <button onclick="document.getElementById('editarLivro').style.display='none'">Atualizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row" id="jogos">
+                <h3 class="col-sm-1">Jogos</h3>
+                <table class="col-sm-11">
+                    <thead>
+                        <tr>
+                            <th>Para jogar</th>
+                            <th>Jogando</th>
+                            <th>Jogado</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <button onclick="document.getElementById('editarJogo').style.display='block'">Atualizar Jogo</button>
+            <button onclick="document.getElementById('adicionarJogo').style.display='block'">Adicionar Jogo</button>
+            <button>Remover Jogo</button>
+
+            <div id="adicionarJogo" class="w3-modal w3-animate-opacity">
+                <div class="w3-modal-content">
+                    <header>
+                        <span onclick="document.getElementById('adicionarJogo').style.display='none'"
+                            class="w3-button w3-display-topright">&times;</span>
+                        <h2>Adicionar Jogo</h2>
+                    </header>
+                    <div class="w3-container">
+                        <form>
+                            <label>Nome:</label>
+                            <input type="text">
+                            <br />
+                            <label>Criado do Jogo:</label>
+                            <input type="text">
+                            <br />
+                            <label>Ano de lançamento:</label>
+                            <input type="date">
+                            <br />
+                            <label>Status:</label>
+                            <select name="" id="">
+                                <option value="Para Jogar">Para Jogar</option>
+                                <option value="Jogando">Jogando</option>
+                                <option value="Jogado">Jogado</option>
+                            </select>
+                        </form>
+                        <button
+                            onclick="document.getElementById('adicionarJogo').style.display='none'">Adicionar</button>
+                        <button onclick="document.getElementById('adicionarJogo').style.display='none'">Voltar</button>
+                    </div>
+                </div>
+            </div>
+            <div id="editarJogo" class="w3-modal w3-animate-opacity">
+                <div class="w3-modal-content">
+                    <header>
+                        <span onclick="document.getElementById('editarJogo').style.display='none'"
+                            class="w3-button w3-display-topright">&times;</span>
+                        <h2>Atualizar Jogo</h2>
+                    </header>
+                    <div class="w3-container">
+                        <form>
+                            <label>Status:</label>
+                            <input type="radio" name="radioBJogo">Para Jogar</input>
+                            <input type="radio" name="radioBJogo">Jogando</input>
+                            <input type="radio" name="radioBJogo">Jogado</input>
+                        </form>
+                        <button onclick="document.getElementById('editarJogo').style.display='none'">Atualizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </br>
+        <button id="btnVoltar">
+            <a href="/testes/etapa7e8/html/telaLogin.html">Voltar</a>
+        </button>
+    </section>
+</body>
+
+</html>
