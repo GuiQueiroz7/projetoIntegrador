@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tela Inicial</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+        <link rel="stylesheet" th:href="@{/css/tela2.css}" />
+    </head>
+
+    <body>
+        <header>
+            <h1>Bem vindo!!</h1>
+        </header>
+        <section class="container">
+            <div>
+                <div id="filmes">
+                    <h3>Filmes</h3>
+                    <div class="row">
+                        <table class="col-sm-4" id="paraAssisF">
+                            <thead>
+                                <tr>
+                                    <th>Para assistir</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <table class="col-sm-4" id="assistindoF">
+                            <thead>
+                                <tr>
+                                    <th>Assistindo</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <table class="col-sm-4" id="assistidoF">
+                            <thead>
+                                <tr>
+                                    <th>Assistido</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <button onclick="document.getElementById('editarFilme').style.display = 'block'">Atualizar Filme</button>
+                <button onclick="document.getElementById('adicionarFilme').style.display = 'block'">Adicionar Filme</button>
+
+                <div id="adicionarFilme" class="w3-modal w3-animate-opacity">
+                    <div class="w3-modal-content">
+                        <header>
+                            <span onclick="document.getElementById('adicionarFilme').style.display = 'none'"
+                                  class="w3-button w3-display-topright">&times;</span>
+                            <h2>Adicionar Filme</h2>
+                        </header>
+                        <div class="w3-container">
+                            <form id="formAddFilme">
+                                <label for="nome">Nome:</label>
+                                <input type="text" id="nomeF" name="nome">
+                                </br>
+                                <label for="nomeDiretor">Nome do Diretor:</label>
+                                <input type="text" id="nomeDiretorF" name="nomeDiretor">
+                                </br>
+                                <label for="ano">Ano de lançamento:</label>
+                                <input type="date" id="anoF" name="ano">
+                                </br>
+                                <label for="tempo">Tempo de duração</label>
+                                <input type="text" id="tempoF" name="tempo">
+                                </br>
+                                <label for="status">Status:</label>
+                                <select name="status" id="statusF">
+                                    <option value="Para assistir">Para assistir</option>
+                                    <option value="Assistindo">Assistindo</option>
+                                    <option value="Assistido">Assistido</option>
+                                </select>
+                                </br>
+                                <button type="submit">Adicionar</button>
+                            </form>
+                            <button
+                                onclick="document.getElementById('adicionarFilme').style.display = 'none'">Voltar</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="editarFilme" class="w3-modal w3-animate-opacity">
+                    <div class="w3-modal-content">
+                        <header>
+                            <span onclick="document.getElementById('editarFilme').style.display = 'none'"
+                                  class="w3-button w3-display-topright">&times;</span>
+                            <h2>Atualizar Filme</h2>
+                        </header>
+                        <div class="w3-container">
+                            <form th:action="@{/attFilme}" method="post">
+                                <label for="nome">Nome:</label>
+                                <input type="text" th:field="${filme.nome}">
+                                </br>
+                                <label for="status">Status:</label>
+                                <select name="status" th:field="${filme.status}">
+                                    <option value="Para assistir">Para assistir</option>
+                                    <option value="Assistindo">Assistindo</option>
+                                    <option value="Assistido">Assistido</option>
+                                </select>
+                                </br>
+                                <button type="submit">Atualizar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="series">
+                    <h3>Series</h3>
+                    <div class="row">
+                        <table class="col-sm-4" id="paraAssisS">
+                            <thead>
+                                <tr>
+                                    <th>Para assistir</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <table class="col-sm-4" id="assistindoS">
+                            <thead>
+                                <tr>
+                                    <th>Assistindo</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <table class="col-sm-4" id="assistidoS">
+                            <thead>
+                                <tr>
+                                    <th>Assistido</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <button onclick="document.getElementById('editarSerie').style.display = 'block'">Atualizar Série</button>
+                <button onclick="document.getElementById('adicionarSerie').style.display = 'block'">Adicionar Série</button>
+
+                <div id="adicionarSerie" class="w3-modal w3-animate-opacity">
+                    <div class="w3-modal-content">
+                        <header>
+                            <span onclick="document.getElementById('adicionarSerie').style.display = 'none'"
+                                  class="w3-button w3-display-topright">&times;</span>
+                            <h2>Adicionar Série</h2>
+                        </header>
+                        <div class="w3-container">
+                            <form id="formAddSerie">
+                                <label for="nome">Nome:</label>
+                                <input type="text" id="nomeS" name="nome">
+                                </br>
+                                <label for="nomeDiretor">Nome do Diretor:</label>
+                                <input type="text" id="nomeDiretorS" name="nomeDiretor">
+                                </br>
+                                <label for="ano">Ano de lançamento:</label>
+                                <input type="date" id="anoS" name="ano">
+                                </br>
+                                <label for="status">Status:</label>
+                                <select name="status" id="statusS">
+                                    <option value="Para assistir">Para assistir</option>
+                                    <option value="Assistindo">Assistindo</option>
+                                    <option value="Assistido">Assistido</option>
+                                </select>
+                                </br>
+                                <button type="submit">Adicionar</button>
+                            </form>
+                            <button
+                                onclick="document.getElementById('adicionarSerie').style.display = 'none'">Voltar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="editarSerie" class="w3-modal w3-animate-opacity">
+                    <div class="w3-modal-content">
+                        <header>
+                            <span onclick="document.getElementById('editarSerie').style.display = 'none'"
+                                  class="w3-button w3-display-topright">&times;</span>
+                            <h2>Atualizar Filme</h2>
+                        </header>
+                        <div class="w3-container">
+                            <form th:action="@{/attSerie}" method="post">
+                                <label for="nome">Nome:</label>
+                                <input type="text" th:field="${serie.nome}">
+                                </br>
+                                <select name="status" th:field="${serie.status}">
+                                    <option value="Para assistir">Para assistir</option>
+                                    <option value="Assistindo">Assistindo</option>
+                                    <option value="Assistido">Assistido</option>
+                                </select>
+                                </br>
+                                <button type="submit">Atualizar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="livros">
+                    <h3>Livros</h3>
+                    <div class="row">
+                        <table class="col-sm-4" id="paraLer">
+                            <thead>
+                                <tr>
+                                    <th>Para ler</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <table class="col-sm-4" id="lendo">
+                            <thead>
+                                <tr>
+                                    <th>Lendo</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <table class="col-sm-4" id="lido">
+                            <thead>
+                                <tr>
+                                    <th>Lido</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <button onclick="document.getElementById('editarLivro').style.display = 'block'">Atualizar Livro</button>
+                <button onclick="document.getElementById('adicionarLivro').style.display = 'block'">Adicionar Livro</button>
+
+                <div id="adicionarLivro" class="w3-modal w3-animate-opacity">
+                    <div class="w3-modal-content">
+                        <header>
+                            <span onclick="document.getElementById('adicionarLivro').style.display = 'none'"
+                                  class="w3-button w3-display-topright">&times;</span>
+                            <h2>Adicionar Livro</h2>
+                        </header>
+                        <div class="w3-container">
+                            <form id="formAddLivro">
+                                <label for="nome">Nome:</label>
+                                <input type="text" id="nomeL" name="nome">
+                                </br>
+                                <label for="nomeEscritor">Nome do Escritor:</label>
+                                <input type="text" id="nomeEscritor" name="nomeEscritor">
+                                </br>
+                                <label for="ano">Ano de lançamento:</label>
+                                <input type="date" id="anoL" name="ano">
+                                </br>
+                                <label for="status">Status:</label>
+                                <select name="status" id="statusL">
+                                    <option value="Para ler">Para ler</option>
+                                    <option value="Lendo">Lendo</option>
+                                    <option value="Lido">Lido</option>
+                                </select>
+                                </br>
+                                <button type="submit">Adicionar</button>
+                            </form>
+                            <button
+                                onclick="document.getElementById('adicionarLivro').style.display = 'none'">Voltar</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="editarLivro" class="w3-modal w3-animate-opacity">
+                    <div class="w3-modal-content">
+                        <header>
+                            <span onclick="document.getElementById('editarLivro').style.display = 'none'"
+                                  class="w3-button w3-display-topright">&times;</span>
+                            <h2>Atualizar Filme</h2>
+                        </header>
+                        <div class="w3-container">
+                            <form th:action="@{/attLivro}" method="post">
+                                <label for="nome">Nome:</label>
+                                <input type="text" th:field="${livro.nome}">
+                                </br>
+                                <select name="status" th:field="${livro.status}">
+                                    <option value="Para ler">Para ler</option>
+                                    <option value="Lendo">Lendo</option>
+                                    <option value="Lido">Lido</option>
+                                </select>
+                                </br>
+                                <button type="submit">Atualizar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="jogos">
+                    <h3>Jogos</h3>
+                    <div class="row">
+                        <table class="col-sm-4" id="paraJogar">
+                            <thead>
+                                <tr>
+                                    <th>Para jogar</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <table class="col-sm-4" id="jogando">
+                            <thead>
+                                <tr>
+                                    <th>Jogando</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <table class="col-sm-4" id="jogado">
+                            <thead>
+                                <tr>
+                                    <th>Jogado</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <button onclick="document.getElementById('editarJogo').style.display = 'block'">Atualizar Livro</button>
+                <button onclick="document.getElementById('adicionarJogo').style.display = 'block'">Adicionar Livro</button>
+
+                <div id="adicionarJogo" class="w3-modal w3-animate-opacity">
+                    <div class="w3-modal-content">
+                        <header>
+                            <span onclick="document.getElementById('adicionarJogo').style.display = 'none'"
+                                  class="w3-button w3-display-topright">&times;</span>
+                            <h2>Adicionar Jogo</h2>
+                        </header>
+                        <div class="w3-container">
+                            <form id="formAddJogo">
+                                <label for="nome">Nome:</label>
+                                <input type="text" id="nomeJ" name="nome">
+                                </br>
+                                <label for="nomeCriador">Nome do Criador:</label>
+                                <input type="text" id="nomeCriador" name="nomeCriador">
+                                </br>
+                                <label for="anoJ">Ano de lançamento:</label>
+                                <input type="date" id="anoJ" name="anoJ">
+                                </br>
+                                <label for="status">Status:</label>
+                                <select name="status" id="statusJ">
+                                    <option value="Para jogar">Para jogar</option>
+                                    <option value="Jogando">Jogando</option>
+                                    <option value="Jogado">Jogado</option>
+                                </select>
+                                </br>
+                                <button type="submit">Adicionar</button>
+                            </form>
+                            <button
+                                onclick="document.getElementById('adicionarJogo').style.display = 'none'">Voltar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="editarJogo" class="w3-modal w3-animate-opacity">
+                    <div class="w3-modal-content">
+                        <header>
+                            <span onclick="document.getElementById('editarJogo').style.display = 'none'"
+                                  class="w3-button w3-display-topright">&times;</span>
+                            <h2>Atualizar Jogo</h2>
+                        </header>
+                        <div class="w3-container">
+                            <form th:action="@{/attJogo}" method="post">
+                                <label for="nome">Nome:</label>
+                                <input type="text" th:field="${jogo.nome}">
+                                </br>
+                                <select name="status" th:field="${jogo.status}">
+                                    <option value="Para jogar">Para jogar</option>
+                                    <option value="Jogando">Jogando</option>
+                                    <option value="Jogado">Jogado</option>
+                                </select>
+                                </br>
+                                <button type="submit">Atualizar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </br>
+            <button id="btnVoltar">
+                <a href="/">Voltar</a>
+            </button>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script th:src="@{/js/telaPrincipal.js}"></script>
+    </body>
+
+</html>
